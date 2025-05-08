@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Happy Moment | Happy Anniversary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --love-pink: #ff6b8b;
+            --love-red: #ff2e63;
+            --love-purple: #c86bfa;
+            --dark: #1a1a2e;
+            --light: #fef6fb;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+        
+        /* Magical cursor trail */
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 107, 139, 0.5);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            mix-blend-mode: screen;
+        }
+        
+        /* Enchanted header */
+        .enchanted-header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at bottom, #1a1a2e 0%, #000000 100%);
+        }
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+            opacity: var(--opacity);
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: var(--opacity); }
+            50% { opacity: calc(var(--opacity) * 0.3); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            margin: 0;
+            background: linear-gradient(to right, #ff6b8b, #ff2e63, #c86bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 107, 139, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 107, 139, 0.3); }
+            to { text-shadow: 0 0 20px rgba(255, 107, 139, 0.6), 0 0 30px rgba(200, 107, 250, 0.4); }
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin: 20px 0 40px;
+            opacity: 0.9;
+        }
+        
+        /* Magic button */
+        .magic-button {
+            background: linear-gradient(45deg, var(--love-pink), var(--love-purple));
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+        }
+        
+        .magic-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 139, 0.6);
+        }
+        
+        .magic-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right, 
+                rgba(255,255,255,0) 45%,
+                rgba(255,255,255,0.8) 50%,
+                rgba(255,255,255,0) 55%
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+        
+        /* Interactive memory book */
+        .memory-book {
+            max-width: 1000px;
+            margin: 100px auto;
+            position: relative;
+            perspective: 2000px;
+        }
+        
+        .page {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 10px;
+            padding: 50px;
+            margin: 30px 0;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 107, 139, 0.2);
+        }
+        
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                transparent 65%,
+                rgba(255, 107, 139, 0.05) 75%,
+                transparent 85%
+            );
+        }
+        
+        .page:hover {
+            transform: rotateY(10deg) rotateX(2deg);
+        }
+        
+        .page h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--love-pink);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--love-pink), var(--love-purple));
+        }
+        
+        /* Love letter reveal */
+        .love-letter {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 107, 139, 0.3);
+        }
+        
+        .love-letter:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .love-letter h3 {
+            color: var(--love-pink);
+            margin-bottom: 15px;
+        }
+        
+        .letter-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .love-letter.active .letter-content {
+            max-height: 500px;
+        }
+        
+        /* Photo constellation */
+        .constellation {
+            display: flex;
+            justify-content: center;
+            margin: 60px 0;
+            position: relative;
+            min-height: 400px;
+        }
+        
+        .photo-star {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 20px rgba(255, 107, 139, 0.5);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            border: 2px solid var(--love-pink);
+        }
+        
+        .photo-star:hover {
+            transform: scale(1.2);
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(255, 107, 139, 0.8);
+        }
+        
+        .star-connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--love-pink), transparent);
+            transform-origin: left center;
+            z-index: 1;
+        }
+        
+        /* Footer with floating hearts */
+        .enchanted-footer {
+            text-align: center;
+            padding: 80px 0 120px;
+            position: relative;
+            background: linear-gradient(to top, #0f0c29, #1a1a2e);
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--love-pink);
+            margin-top: 20px;
+            display: inline-block;
+            background: linear-gradient(to right, #ff6b8b, #ff2e63);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 24px;
+            color: var(--love-pink);
+            opacity: 0;
+            animation: float-up 6s linear infinite;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .page {
+                padding: 30px 20px;
+            }
+            
+            .page h2 {
+                font-size: 2rem;
+            }
+            
+            .photo-star {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Magical cursor trail -->
+    <div class="cursor-trail" id="cursor-trail"></div>
+    
+    <!-- Enchanted header with stars -->
+    <header class="enchanted-header">
+        <div class="stars" id="stars"></div>
+        <div class="header-content">
+            <h1>Happy Anniversary</h1>
+            <div class="subtitle">Every moment with you feels like the best lovers story</div>
+            <button class="magic-button" id="magic-button">Unlock Our Memories</button>
+        </div>
+    </header>
+    
+    <!-- Interactive memory book -->
+    <div class="memory-book">
+        <div class="page">
+            <h2>Begining Of Our Love</h2>
+            <p>Do you remember when we first met? It was the moment i feel so happy cause i'm waiting that moment. I'll never forget how your exspression and your act make me shy. That was the moment I knew there was something special about you.</p>
+            
+            <div class="love-letter" id="letter1">
+                <h3>Click to read my first thoughts about you</h3>
+                <div class="letter-content">
+                    <p>Dear Baby Girl,</p>
+                    <p>From the first time we met, I knew you were different. The way you treat and your personality made me feel so in love with you. I found myself thinking about you constantly, especially when you act clingy when you with me.</p>
+                    <p>Even then, I had a feeling we'd be celebrating many anniversaries together.</p>
+                    <p>Forever yours,<br>Baby Boy</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page">
+            <h2>Our Constellation</h2>
+            <p>These are the moments that shine brightest in my memory, forming the constellation of our love:</p>
+            
+            <div class="constellation" id="constellation">
+                <!-- Stars will be added by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="page">
+            <h2>What Makes You special</h2>
+            
+            <div class="love-letter" id="letter2">
+                <h3>Click to reveal what I adore about you</h3>
+                <div class="letter-content">
+                    <ul>
+                        <li>The way you hug me so tight when you think no one is watching</li>
+                        <li>How you always know exactly when I need your attention</li>
+                        <li>That little kiss habit that's make you special</li>
+                        <li>Your smile and your support that makes every day brighter</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="love-letter" id="letter3">
+                <h3>Click to read my favorite memories</h3>
+                <div class="letter-content">
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: var(--love-pink); margin-bottom: 5px;">Makan Nasi Goreng</h4>
+                        <p>Moment favorit aku yang pertama waktu kita makan nasi goreng berdua dan kamu aku suruh abisin nasinya dan kamu bisa dan abis itu kamu modus ke aku, tapi aku suka</p>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: var(--love-pink); margin-bottom: 5px;">Saat Pertama Ke Rumah Aku</h4>
+                        <p>Aku masih ga bisa nyangka kalo adek adek aku bakalan suka sama kamu dan aku juga ga tefikir kalo mereka bakalan mau bikin tiktok sama kamu, itu lucu dan bikin aku makin sayang ke kamu</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--love-pink); margin-bottom: 5px;">Waktu Kita Di Mall</h4>
+                        <p>Itu moment yang ga akan aku lupa dan selalu aku inget karna disitu kita buat janji dan menaruh semua rasa sayang kita </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enchanted footer -->
+    <footer class="enchanted-footer">
+        <div class="floating-hearts" id="floating-hearts"></div>
+        <div style="position: relative; z-index: 2;">
+            <p>Thank you for 3 months together Baby I LOVE YOU SO MUCH</p>
+            <p>I can't wait to create many more memories with you</p>
+            <div class="signature">Baby Boy</div>
+        </div>
+    </footer>
+
+    <script>
+        // Create twinkling stars
+        function createStars() {
+            const container = document.getElementById('stars');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.width = (Math.random() * 3 + 1) + 'px';
+                star.style.height = star.style.width;
+                star.style.opacity = Math.random();
+                star.style.setProperty('--opacity', star.style.opacity);
+                star.style.setProperty('--duration', (Math.random() * 5 + 3) + 's');
+                star.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(star);
+            }
+        }
+        
+        // Create constellation of photo memories
+        function createConstellation() {
+            const container = document.getElementById('constellation');
+            const starCount = 8;
+            const centerX = window.innerWidth / 2;
+            const centerY = 200;
+            const radius = 150;
+            
+            // Add photo stars
+            for (let i = 0; i < starCount; i++) {
+                const angle = (i / starCount) * Math.PI * 2;
+                const x = centerX + Math.cos(angle) * radius - 40;
+                const y = centerY + Math.sin(angle) * radius;
+                
+                const star = document.createElement('div');
+                star.className = 'photo-star';
+                star.style.left = x + 'px';
+                star.style.top = y + 'px';
+                star.style.backgroundImage = "url('images/BCL5.jpg')";
+                star.style.transform = `rotate(${angle}rad)`;
+                container.appendChild(star);
+                
+                // Add connections between stars
+                if (i > 0) {
+                    const prevAngle = ((i-1) / starCount) * Math.PI * 2;
+                    const prevX = centerX + Math.cos(prevAngle) * radius;
+                    const prevY = centerY + Math.sin(prevAngle) * radius;
+                    
+                    const distance = Math.sqrt(Math.pow(x - prevX, 2) + Math.pow(y - prevY, 2));
+                    const connAngle = Math.atan2(y - prevY, x - prevX);
+                    
+                    const connection = document.createElement('div');
+                    connection.className = 'star-connection';
+                    connection.style.left = prevX + 'px';
+                    connection.style.top = prevY + 'px';
+                    connection.style.width = distance + 'px';
+                    connection.style.transform = `rotate(${connAngle}rad)`;
+                    container.appendChild(connection);
+                }
+            }
+            
+            // Add center star
+            const centerStar = document.createElement('div');
+            centerStar.className = 'photo-star';
+            centerStar.style.left = (centerX - 40) + 'px';
+            centerStar.style.top = centerY + 'px';
+            centerStar.style.width = '100px';
+            centerStar.style.height = '100px';
+            centerStar.style.backgroundImage = "url('images/BCL8.jpg')";
+            centerStar.style.boxShadow = '0 0 30px rgba(255, 107, 139, 0.8)';
+            container.appendChild(centerStar);
+        }
+        
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('floating-hearts');
+            const heartCount = 15;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+        
+        // Cursor trail effect
+        function setupCursorTrail() {
+            const cursor = document.getElementById('cursor-trail');
+            let mouseX = 0, mouseY = 0;
+            let posX = 0, posY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function updateCursor() {
+                posX += (mouseX - posX) / 10;
+                posY += (mouseY - posY) / 10;
+                
+                cursor.style.left = posX + 'px';
+                cursor.style.top = posY + 'px';
+                
+                requestAnimationFrame(updateCursor);
+            }
+            
+            updateCursor();
+        }
+        
+        // Toggle love letters
+        function setupLoveLetters() {
+            const letters = document.querySelectorAll('.love-letter');
+            
+            letters.forEach(letter => {
+                letter.addEventListener('click', () => {
+                    letter.classList.toggle('active');
+                });
+            });
+        }
+        
+        // Magic button effect
+        function setupMagicButton() {
+            const button = document.getElementById('magic-button');
+            
+            button.addEventListener('click', () => {
+                // Scroll to memory book with smooth animation
+                document.querySelector('.memory-book').scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Create sparkle effect
+                for (let i = 0; i < 20; i++) {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'star';
+                    sparkle.style.position = 'fixed';
+                    sparkle.style.left = button.getBoundingClientRect().left + button.offsetWidth/2 + 'px';
+                    sparkle.style.top = button.getBoundingClientRect().top + button.offsetHeight/2 + 'px';
+                    sparkle.style.width = '10px';
+                    sparkle.style.height = '10px';
+                    sparkle.style.opacity = '1';
+                    sparkle.style.animation = 'sparkle 1s ease-out forwards';
+                    document.body.appendChild(sparkle);
+                    
+                    // Random direction
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 50 + Math.random() * 100;
+                    
+                    // Animate
+                    setTimeout(() => {
+                        sparkle.style.transform = `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
+                        sparkle.style.opacity = '0';
+                    }, 10);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 1000);
+                }
+            });
+        }
+        
+        // Run when page loads
+        window.onload = function() {
+            createStars();
+            createConstellation();
+            createFloatingHearts();
+            setupCursorTrail();
+            setupLoveLetters();
+            setupMagicButton();
+        };
+    </script>
+</body>
+</html>
